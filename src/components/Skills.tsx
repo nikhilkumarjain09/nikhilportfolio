@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Server, Layout, Database, Cloud, Cpu, ArrowRight } from 'lucide-react'
+import { Server, Layout, Database, Cloud, Cpu } from 'lucide-react'
 
 interface SkillItem {
   name: string

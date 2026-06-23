@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion'
-import { Calendar, Briefcase, ChevronRight, CheckCircle2 } from 'lucide-react'
-
-interface RoleHighlight {
-  text: string
-}
+import { Calendar, Briefcase, CheckCircle2 } from 'lucide-react'
 
 interface ExperienceItem {
   company: string
