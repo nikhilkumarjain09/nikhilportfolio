@@ -1,0 +1,39 @@
+================================================================================
+                       NIKHIL KUMAR JAIN - RESUME
+================================================================================
+Senior Software Engineer | Full Stack Developer | AI-Powered SaaS Builder
+Email: nikhilkumarjain.dev@gmail.com
+LinkedIn: linkedin.com/in/nikhil-kumar-jain
+GitHub: github.com/nikhil-kumar-jain
+--------------------------------------------------------------------------------
+
+SUMMARY
+Highly skilled Senior Software Engineer with 4+ years of professional experience
+designing and building scalable SaaS platforms, accessibility applications,
+AI-integrated tools, and high-performance cloud architectures.
+
+TECHNICAL SKILLS
+- Frontend: React.js, Next.js, TypeScript, JavaScript, Redux, Tailwind CSS
+- Backend: Node.js, Express.js, Nest.js, REST APIs, GraphQL
+- Databases: MongoDB, Firebase, PostgreSQL, MySQL
+- Cloud & DevOps: AWS, Azure, GCP, Docker, CI/CD, GitHub Actions
+- AI & Automation: Generative AI, LLM Integration, Prompt Engineering, AI Agents
+
+EXPERIENCE
+* Vimovi Global Tech Pvt Ltd - Senior Software Engineer (Jan 2024 - Present)
+  - Developed Pyngyn AI project management SaaS platform.
+  - Built 30+ reusable React components.
+  - Increased API performance by 25% and reduced page load times by 30%.
+* Sonant Technologies - Software Developer (Jul 2022 - Oct 2024)
+  - Created SIGNey accessibility platform for Indian Sign Language translation.
+  - Designed Unity WebGL streaming tools and railway accessibility nodes.
+
+PROJECTS
+* Pyngyn: AI Project Management Platform (React, Node, Firebase, AWS, GenAI)
+* SIGNey: Accessible voice/text Sign Language Translator (React, Python, Flask, OpenCV)
+* DSLIS: Railway Sign Language Interpretation Board (React, Node, WebSockets, Firebase)
+
+--------------------------------------------------------------------------------
+NOTE FOR THE OWNER: Replace this placeholder document with your actual PDF resume
+by saving it as "Nikhil_Kumar_Jain_Resume.pdf" inside the "public/" folder.
+================================================================================
