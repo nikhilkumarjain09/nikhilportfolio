@@ -59,23 +59,23 @@ export default function CustomCursor() {
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
-          scale: isHovered ? 1.5 : 1,
+          scale: isHovered ? 1.8 : 1,
+          borderColor: isHovered ? '#06b6d4' : 'rgba(6, 182, 212, 0.6)',
           backgroundColor: isHovered ? 'rgba(6, 182, 212, 0.25)' : 'rgba(6, 182, 212, 0)',
         }}
       />
       {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-blue-500 pointer-events-none z-50 mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-blue-500 pointer-events-none z-50 mix-blend-difference hidden md:block translate-x-[11px] translate-y-[11px]"
         style={{
           x: cursorX,
           y: cursorY,
         }}
         animate={{
-          x: cursorX.get() + 11,
-          y: cursorY.get() + 11,
-          scale: isHovered ? 0.4 : 1,
+          scale: isHovered ? 0.5 : 1,
+          backgroundColor: isHovered ? '#06b6d4' : '#3b82f6',
         }}
-        transition={{ type: 'tween', ease: 'linear', duration: 0 }}
+        transition={{ duration: 0.15 }}
       />
     </>
   )

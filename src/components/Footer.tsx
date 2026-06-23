@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Social icons */}
           <div className="flex items-center gap-4 text-slate-400">
             <a 
-              href="https://github.com/nikhil-kumar-jain" 
+              href="https://github.com/nikhilkumarjain09" 
               target="_blank" 
               rel="noreferrer" 
               className="p-2 rounded-lg border border-white/5 bg-gray-900/40 hover:text-white hover:border-slate-700 hover:scale-105 active:scale-95 transition-all duration-300"
@@ -29,7 +29,7 @@ export default function Footer() {
               <Github size={16} />
             </a>
             <a 
-              href="https://linkedin.com/in/nikhil-kumar-jain" 
+              href="https://linkedin.com/in/nikhil-kumar-jain-b05909278" 
               target="_blank" 
               rel="noreferrer" 
               className="p-2 rounded-lg border border-white/5 bg-gray-900/40 hover:text-cyan-400 hover:border-cyan-400/30 hover:scale-105 active:scale-95 transition-all duration-300"
@@ -38,7 +38,7 @@ export default function Footer() {
               <Linkedin size={16} />
             </a>
             <a 
-              href="mailto:nikhilkumarjain.dev@gmail.com" 
+              href="mailto:nikhil.wevois@gmail.com" 
               className="p-2 rounded-lg border border-white/5 bg-gray-900/40 hover:text-blue-400 hover:border-blue-400/30 hover:scale-105 active:scale-95 transition-all duration-300"
               aria-label="Email Address"
             >

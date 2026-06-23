@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, Sparkles } from 'lucide-react'
-import heroImg from '../assets/hero.png'
+
 
 const ROLES = [
   "Senior Software Engineer",
@@ -16,14 +16,18 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false)
   const [typingSpeed, setTypingSpeed] = useState(80)
 
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const parallaxRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e
-      const x = (clientX - window.innerWidth / 2) / 35
-      const y = (clientY - window.innerHeight / 2) / 35
-      setMousePos({ x, y })
+      if (!parallaxRef.current) return
+      const x = (e.clientX - window.innerWidth / 2) / 35
+      const y = (e.clientY - window.innerHeight / 2) / 35
+      requestAnimationFrame(() => {
+        if (parallaxRef.current) {
+          parallaxRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`
+        }
+      })
     }
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
@@ -170,15 +174,13 @@ export default function Hero() {
 
         {/* Right Column: Floating profile graphic */}
         <div className="lg:col-span-5 flex justify-center items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{
-              transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`,
-            }}
-            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 group transition-transform duration-300 ease-out"
-          >
+          <div ref={parallaxRef} className="transition-transform duration-300 ease-out will-change-transform">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 group"
+            >
             {/* Background glowing circle */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 blur-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-500 animate-pulse-slow" />
             
@@ -190,7 +192,7 @@ export default function Hero() {
               {/* Inner frame */}
               <div className="relative w-full h-full rounded-xl bg-gray-950 overflow-hidden border border-white/5 flex items-center justify-center">
                 <img 
-                  src={heroImg} 
+                  src="/nikhil-icon.png" 
                   alt="Nikhil Kumar Jain Profile" 
                   className="w-full h-full object-cover filter brightness-[0.9] hover:brightness-[1] transition-all duration-700 hover:scale-105"
                 />
@@ -219,6 +221,7 @@ export default function Hero() {
               <span className="text-[10px] font-mono text-cyan-400 font-bold">TS</span>
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>

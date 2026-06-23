@@ -18,6 +18,7 @@ import WhyHireMe from './components/WhyHireMe'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Spotlight from './components/Spotlight'
 
 const queryClient = new QueryClient()
 
@@ -56,15 +57,7 @@ export default function App() {
     }
   }, [])
 
-  // Mouse spotlight coordinate listener
-  useEffect(() => {
-    const updateSpotlight = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--x', `${e.clientX}px`)
-      document.documentElement.style.setProperty('--y', `${e.clientY}px`)
-    }
-    window.addEventListener('mousemove', updateSpotlight)
-    return () => window.removeEventListener('mousemove', updateSpotlight)
-  }, [])
+
 
   // Track scroll depth for navbar glassmorphism trigger
   useEffect(() => {
@@ -116,7 +109,7 @@ export default function App() {
             className="relative min-h-screen bg-bg-dark text-white-text selection:bg-blue-600/30 selection:text-white"
           >
             {/* Global Spotlight Mouse Overlay */}
-            <div className="fixed inset-0 mouse-spotlight pointer-events-none z-0" />
+            <Spotlight />
 
             {/* Subtly Animated 3D Backdrop */}
             <ThreeBackground />

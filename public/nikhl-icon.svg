@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagon -->
+  <polygon
+    points="256,80 390,160 390,352 256,432 122,352 122,160"
+    fill="none"
+    stroke="url(#blueGradient)"
+    stroke-width="18"
+  />
+
+  <!-- Letter N -->
+  <path
+    d="M 165 360 V 150 H 204 L 305 290 V 150 H 345 V 360 H 305 L 204 220 V 360 H 185 Z"
+    fill="url(#blueGradient)"
+  />
+
+</svg>

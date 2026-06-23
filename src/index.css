@@ -123,11 +123,10 @@
   }
 }
 
-/* Custom styling for cursor glow effect */
-.mouse-spotlight {
-  pointer-events: none;
-  background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(37, 99, 235, 0.08), transparent 40%);
-  z-index: 1;
+@media (min-width: 768px) {
+  html, body, a, button, [role="button"], input, textarea, select, label, .interactive-hover {
+    cursor: none !important;
+  }
 }
 
 /* Custom styles for Lenis scroll */

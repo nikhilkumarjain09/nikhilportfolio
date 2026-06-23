@@ -86,12 +86,12 @@ function SkillCard({ skill }: { skill: SkillItem }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
-      className="relative overflow-hidden p-5 rounded-xl border border-white/5 bg-gray-900/30 flex items-center justify-between group transition-all duration-300 hover:border-slate-800"
+      layout="position"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.25 }}
+      className="relative overflow-hidden p-5 rounded-xl border border-white/5 bg-gray-900/30 flex items-center justify-between group transition-colors duration-300 hover:border-slate-800"
     >
       {/* Spotlight effect */}
       {isHovered && (
@@ -184,8 +184,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Cards Grid */}
-        <motion.div 
-          layout
+        <div 
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto"
         >
           <AnimatePresence mode="popLayout">
@@ -193,7 +192,7 @@ export default function Skills() {
               <SkillCard key={skill.name} skill={skill} />
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* Professional Summary Footnote */}
         <div className="mt-16 text-center">

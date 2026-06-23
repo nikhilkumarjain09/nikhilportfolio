@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Briefcase, Cpu, Layers, Cloud, Sparkles, Terminal, Award } from 'lucide-react'
 
@@ -84,6 +84,22 @@ const MILESTONES: TimelineMilestone[] = [
 
 export default function About() {
   const [activeMilestone, setActiveMilestone] = useState(3) // Default to latest
+  const bioParallaxRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!bioParallaxRef.current) return
+      const x = (e.clientX - window.innerWidth / 2) / 50
+      const y = (e.clientY - window.innerHeight / 2) / 50
+      requestAnimationFrame(() => {
+        if (bioParallaxRef.current) {
+          bioParallaxRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`
+        }
+      })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
 
   return (
     <section id="about" className="relative py-24 bg-[#030712] border-t border-gray-900/60 overflow-hidden">
@@ -119,6 +135,62 @@ export default function About() {
           >
             I am a senior product-focused engineer who bridges the gap between complex system design and user-centric features.
           </motion.p>
+        </div>
+
+        {/* Profile Bio & Full Body Image block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 text-left">
+          {/* Left Column: Full-body professional photo with parallax */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div ref={bioParallaxRef} className="transition-transform duration-300 ease-out will-change-transform">
+              <div className="relative group w-72 h-96 sm:w-80 sm:h-[420px] md:w-96 md:h-[460px]">
+                {/* Background glowing shadows */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 blur-2xl opacity-15 group-hover:opacity-25 transition-opacity duration-500 animate-pulse-slow" />
+                {/* Float border wrapper */}
+                <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-blue-600/20 to-cyan-400/20 border border-white/5 opacity-80 animate-float" />
+                {/* Image card wrapper */}
+                <div className="absolute inset-0 rounded-2xl bg-gray-900 border border-white/10 overflow-hidden shadow-2xl glass-card p-3">
+                  <img 
+                    src="/professional-image-nikhil1.png" 
+                    alt="Nikhil Kumar Jain Full Body Portrait" 
+                    className="w-full h-full object-cover rounded-xl filter brightness-[0.95] hover:brightness-[1] transition-all duration-700 hover:scale-102"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Bio & technical specs */}
+          <div className="lg:col-span-7 space-y-6">
+            <h3 className="text-2xl md:text-3xl font-bold font-display text-white">
+              Engineering high-performance SaaS platforms & AI agent workflows
+            </h3>
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+              I am a Senior Software Engineer specializing in Full Stack Development, AI-Powered Applications, and Cloud Architecture. With 4+ years of professional experience, I focus on building products that bridge complex backend logic with beautiful, responsive frontend interfaces.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              From developing accessibility translation platforms like SIGNey for public railways to implementing automated project management frameworks with Generative AI pipelines (Pyngyn), I enjoy structuring clean codebases, optimizing database schemas, and automating cloud-native deployments.
+            </p>
+            
+            {/* Quick specs grid */}
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/5">
+              <div>
+                <p className="text-xs font-mono text-slate-500 uppercase tracking-widest">Current Role</p>
+                <p className="text-sm font-semibold text-cyan-400 mt-1">Senior Software Engineer</p>
+              </div>
+              <div>
+                <p className="text-xs font-mono text-slate-500 uppercase tracking-widest">Specialization</p>
+                <p className="text-sm font-semibold text-cyan-400 mt-1">Full Stack & Generative AI</p>
+              </div>
+              <div>
+                <p className="text-xs font-mono text-slate-500 uppercase tracking-widest">Base Tech Stack</p>
+                <p className="text-sm font-semibold text-white mt-1">React, Node, TS, AWS, Docker</p>
+              </div>
+              <div>
+                <p className="text-xs font-mono text-slate-500 uppercase tracking-widest">Target Location</p>
+                <p className="text-sm font-semibold text-white mt-1">Worldwide (Remote/Hybrid)</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Strengths Grid */}
