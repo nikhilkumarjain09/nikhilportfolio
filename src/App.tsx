@@ -207,7 +207,7 @@ export default function App() {
               <Projects />
               <Achievements />
               <WhyHireMe />
-              <Testimonials />
+              {/* <Testimonials /> */}
               <Contact />
             </main>
 
