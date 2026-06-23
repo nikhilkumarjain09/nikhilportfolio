@@ -23,7 +23,7 @@ export default function Contact() {
     subject: '',
     message: ''
   })
-  
+
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -65,7 +65,7 @@ export default function Contact() {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
+      // alert(serviceId);
       if (serviceId && templateId && publicKey) {
         await emailjs.send(
           serviceId,
@@ -76,7 +76,11 @@ export default function Contact() {
             subject: formData.subject,
             message: formData.message,
             to_name: "Nikhil Kumar Jain",
-            to_email: "nikhil.wevois@gmail.com"
+            to_email: "nikhil.wevois@gmail.com",
+            date: new Date().toLocaleString("en-IN", {
+              dateStyle: "medium",
+              timeStyle: "short",
+            })
           },
           publicKey
         )
@@ -137,7 +141,7 @@ export default function Contact() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -146,14 +150,14 @@ export default function Contact() {
           >
             GET IN TOUCH
           </motion.h2>
-          <motion.div 
+          <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 64 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto rounded-full"
           />
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -206,7 +210,7 @@ export default function Contact() {
 
           {/* Right Column: Contact form */}
           <div className="lg:col-span-7">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -256,9 +260,8 @@ export default function Contact() {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 bg-gray-950/70 border rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400/80 transition-all duration-300 ${
-                            errors.name ? 'border-rose-500/50' : 'border-white/5'
-                          }`}
+                          className={`w-full px-4 py-3 bg-gray-950/70 border rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400/80 transition-all duration-300 ${errors.name ? 'border-rose-500/50' : 'border-white/5'
+                            }`}
                           placeholder="John Doe"
                         />
                         {errors.name && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle size={10} />{errors.name}</p>}
@@ -275,9 +278,8 @@ export default function Contact() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 bg-gray-950/70 border rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400/80 transition-all duration-300 ${
-                            errors.email ? 'border-rose-500/50' : 'border-white/5'
-                          }`}
+                          className={`w-full px-4 py-3 bg-gray-950/70 border rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400/80 transition-all duration-300 ${errors.email ? 'border-rose-500/50' : 'border-white/5'
+                            }`}
                           placeholder="johndoe@example.com"
                         />
                         {errors.email && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle size={10} />{errors.email}</p>}
@@ -311,9 +313,8 @@ export default function Contact() {
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 bg-gray-950/70 border rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400/80 transition-all duration-300 resize-none ${
-                          errors.message ? 'border-rose-500/50' : 'border-white/5'
-                        }`}
+                        className={`w-full px-4 py-3 bg-gray-950/70 border rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400/80 transition-all duration-300 resize-none ${errors.message ? 'border-rose-500/50' : 'border-white/5'
+                          }`}
                         placeholder="Describe your project goals or role specifications..."
                       />
                       {errors.message && <p className="text-xs text-rose-500 mt-1 flex items-center gap-1"><AlertCircle size={10} />{errors.message}</p>}
